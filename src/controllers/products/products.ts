@@ -11,19 +11,30 @@ server.use(bodyParser.json());
 
 
 export default class ProductsController {
-    public static addProduct(req) {
-        console.log("1");
-        var jsondata = req.body;
-        console.log("2");
-        var values = [];
-    
-        for(var i=0; i< jsondata.length; i++){
-            values.push([jsondata[i].productID, jsondata[i].productName, jsondata[i].categoryID, jsondata[i].price, jsondata[i].description, jsondata[i].commentaire]);
+    public static addOrUpdateProduct(req) {
+        var productId = req.body.productID;
+        if (productId ) {
+            const product = req.body;
+            productsdb.updateProduct(product);
+        } else {
+            this.addProduct(req);
         }
-        console.log("3");
-        productsdb.addProduct(values);
-        console.log("4");
+        
     };
+    
+    
+    public static delProduct(req) {
+        var productId = req.query.productId;
+
+        productsdb.delProduct(productId);
+    };
+
+    private static addProduct(req : any){
+        const product = req.body;
+        var values = [];
+        values.push([product.productName, product.categoryID, product.price, product.description, product.commentaire]);
+        productsdb.addProduct(values);
+    }
     
     
 }

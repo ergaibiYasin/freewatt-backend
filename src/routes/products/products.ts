@@ -2,14 +2,12 @@ import productsController from '../../controllers/products/products';
 
 const express = require('express');
 
-
 const router = express.Router();
 
 
-router.post('/', async(req, res, next) => {
-    // console.log(req);
+router.post('/addOrUpdate', async(req, res, next) => {
     try {
-        productsController.addProduct(req);
+        productsController.addOrUpdateProduct(req);
     }
     catch (error) {
         console.log(error);
@@ -17,9 +15,16 @@ router.post('/', async(req, res, next) => {
     }
 });
 
-// router.post('/', async(req, res, next) => {
-//     console.log(req.body);
-    
-// });
+
+router.delete('/del', async(req, res, next) => {
+    try {
+        productsController.delProduct(req);
+    }
+    catch (error) {
+        console.log(error);
+        res.sendStatus(500);
+    }
+});
+
 
 export default router;

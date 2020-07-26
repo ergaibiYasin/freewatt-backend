@@ -15,7 +15,7 @@ server.use(bodyParser.json());
 
 
 
-router.use('/addproduct', addproduct);
+router.use('/product', addproduct);
 
 
 
