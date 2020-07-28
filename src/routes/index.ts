@@ -1,4 +1,5 @@
-import addproduct from "./products/products";
+import productRoute from "./products/products";
+import saleRoute from "./sales/sales";
 
 
 const express = require('express');
@@ -15,7 +16,8 @@ server.use(bodyParser.json());
 
 
 
-router.use('/product', addproduct);
+router.use('/product', productRoute);
+router.use('/sale', saleRoute);
 
 
 
