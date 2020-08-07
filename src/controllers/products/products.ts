@@ -31,7 +31,6 @@ export default class ProductsController {
     
     public static delProduct(req) {
         var productId = req.query.productId;
-
         productsdb.delProduct(productId);
     };
 

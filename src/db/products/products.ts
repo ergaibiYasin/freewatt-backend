@@ -53,6 +53,7 @@ export default class Productsdb {
     
     
     public static delProduct = (value) => {
+        console.log(value);
         return new Promise ((resolve, reject) => {
 
             const sql = "DELETE FROM products WHERE productID = ?";
@@ -62,6 +63,7 @@ export default class Productsdb {
                     return reject(err);
                 }
                 console.log("deleted");
+                // console.log(value);
                 return resolve(results);
             });
         });
