@@ -34,6 +34,24 @@ export default class Productsdb {
     };
     
     
+    public static allProducts = () => {
+        return new Promise ((resolve, reject) => {
+
+            const sql = "SELECT * FROM products";
+
+            pool.query(sql, (err, results)=>{
+                if(err){
+                    return reject(err);
+                }
+                console.log("found");
+                
+                
+                return resolve(results);
+            });
+        });
+    };
+    
+    
     public static delProduct = (value) => {
         console.log(value);
         return new Promise ((resolve, reject) => {

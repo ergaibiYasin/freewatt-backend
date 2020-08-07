@@ -15,6 +15,17 @@ router.post('/addOrUpdate', async(req, res, next) => {
     }
 });
 
+router.get('/allProducts', async(req, res, next) => {
+    try {
+        let results = await productsController.allProducts();
+        await res.json(results);
+    }
+    catch (error) {
+        console.log(error);
+        res.sendStatus(500);
+    }
+});
+
 
 router.delete('/del', async(req, res, next) => {
     try {

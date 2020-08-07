@@ -22,6 +22,12 @@ export default class ProductsController {
         
     };
     
+    public static allProducts() {
+        const results = productsdb.allProducts();
+        return results;
+        
+    };
+    
     
     public static delProduct(req) {
         var productId = req.query.productId;
