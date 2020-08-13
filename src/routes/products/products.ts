@@ -7,7 +7,9 @@ const router = express.Router();
 
 router.post('/addOrUpdate', async(req, res, next) => {
     try {
-        productsController.addOrUpdateProduct(req);
+        // productsController.addOrUpdateProduct(req);
+        let values = await productsController.addOrUpdateProduct(req);
+        await res.json(values);
     }
     catch (error) {
         console.log(error);
@@ -27,9 +29,11 @@ router.get('/allProducts', async(req, res, next) => {
 });
 
 
-router.delete('/del', async(req, res, next) => {
+router.delete('/del/:id', async(req, res, next) => {
+    
     try {
-        productsController.delProduct(req);
+        let productId = await productsController.delProduct(req);
+        await res.json(productId);
     }
     catch (error) {
         console.log(error);
