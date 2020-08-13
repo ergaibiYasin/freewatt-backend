@@ -17,7 +17,8 @@ export default class ProductsController {
             const product = req.body;
             productsdb.updateProduct(product);
         } else {
-            this.addProduct(req);
+            return this.addProduct(req);
+            
         }
         
     };
@@ -30,8 +31,9 @@ export default class ProductsController {
     
     
     public static delProduct(req) {
-        var productId = req.query.productId;
+        var productId = req.params.id;
         productsdb.delProduct(productId);
+        return productId;
     };
 
     private static addProduct(req : any){
@@ -39,6 +41,7 @@ export default class ProductsController {
         var values = [];
         values.push([product.productName, product.categoryID, product.price, product.description, product.commentaire]);
         productsdb.addProduct(values);
+        return values;
     }
     
     
