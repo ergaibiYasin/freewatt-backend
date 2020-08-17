@@ -25,18 +25,24 @@ export default class SalesController {
         
     };
     
+    public static allSales() {
+        const results = Salesdb.allSales();
+        return results;
+        
+    };
     
     public static delSale(req) {
-        var saleId = req.query.saleID;
+        var saleId = req.params.id;
         Salesdb.delSale(saleId);
+        return saleId;
     };
 
     private static addSale(req : any){
         const sale = req.body;
-        console.log(sale);
         var values = [];
         values.push([sale.customerID, sale.productID, sale.unitPrice, sale.quantity, sale.saleDate, sale.comment]);
         Salesdb.addSale(values);
+        return values;
     }
     
     

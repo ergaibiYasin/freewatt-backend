@@ -33,6 +33,22 @@ export default class Salesdb {
         });
     };
     
+    public static allSales = () => {
+        return new Promise ((resolve, reject) => {
+
+            const sql = "SELECT * FROM sales";
+
+            pool.query(sql, (err, results)=>{
+                if(err){
+                    return reject(err);
+                }
+                console.log("found");
+                
+                
+                return resolve(results);
+            });
+        });
+    };
     
     public static delSale = (value) => {
         
