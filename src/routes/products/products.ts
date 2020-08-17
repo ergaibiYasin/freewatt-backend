@@ -30,7 +30,6 @@ router.get('/allProducts', async(req, res, next) => {
 
 
 router.delete('/del/:id', async(req, res, next) => {
-    
     try {
         let productId = await productsController.delProduct(req);
         await res.json(productId);
