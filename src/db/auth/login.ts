@@ -1,7 +1,7 @@
 import { pool } from '../db';
 
 
-export default class Authdb {
+export default class Logindb {
 
 
 

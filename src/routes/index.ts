@@ -1,6 +1,7 @@
 import productRoute from "./products/products";
 import saleRoute from "./sales/sales";
-import authRoute from "./auth/login";
+import loginRoute from "./auth/login";
+import signupRoute from "./auth/signup";
 
 
 const express = require('express');
@@ -19,7 +20,8 @@ server.use(bodyParser.json());
 
 router.use('/product', productRoute);
 router.use('/sale', saleRoute);
-router.use('/login', authRoute);
+router.use('/login', loginRoute);
+router.use('/signup', signupRoute);
 
 
 
