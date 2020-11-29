@@ -27,48 +27,6 @@ server.use('/', router);
 
 //...........................................................
 
-const users = [
-    {
-        username: 'john',
-        password: 'password123admin',
-        role: 'admin'
-    }, {
-        username: 'anna',
-        password: 'password123member',
-        role: 'member'
-    }
-];
-
-// const accessTokenSecret = 'youraccesstokensecret';
-
-
-
-const books = [
-    {
-        "author": "Chinua Achebe",
-        "country": "Nigeria",
-        "language": "English",
-        "pages": 209,
-        "title": "Things Fall Apart",
-        "year": 1958
-    },
-    {
-        "author": "Hans Christian Andersen",
-        "country": "Denmark",
-        "language": "Danish",
-        "pages": 784,
-        "title": "Fairy tales",
-        "year": 1836
-    },
-    {
-        "author": "Dante Alighieri",
-        "country": "Italy",
-        "language": "Italian",
-        "pages": 928,
-        "title": "The Divine Comedy",
-        "year": 1315
-    },
-];
 
 const authenticateJWT = (req, res, next) => {
     const authHeader = req.headers.authorization;
@@ -89,22 +47,7 @@ const authenticateJWT = (req, res, next) => {
     }
 };
 
-server.get('/books', authenticateJWT, (req, res) => {
-    res.json(books);
-});
 
-
-server.post('/books', authenticateJWT, (req, res)=> {
-    const { role } = req.user;
-    if (role !== 'admin') {
-        return res.sendStatus(403);
-    }
-
-    const book = req.body;
-    books.push(book);
-    res.send('book added successfully');
-    
-})
 //...........................................................
 
 

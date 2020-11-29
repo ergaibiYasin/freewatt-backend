@@ -1,4 +1,4 @@
-import authdb from "../../db/auth/login";
+import Logindb from "../../db/auth/login";
 
 const jwt = require("jsonwebtoken");
 const express = require("express");
@@ -13,10 +13,10 @@ server.use(bodyParser.json());
 
 
 
-export default class AuthController {
+export default class LoginController {
 
   public static allUsers() {
-    const Users = authdb.allUsers();
+    const Users = Logindb.allUsers();
     return Users;
     
   };

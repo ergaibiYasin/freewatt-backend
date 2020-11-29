@@ -1,4 +1,4 @@
-import authController from "../../controllers/auth/Login"
+import LoginController from "../../controllers/auth/Login"
 import { accessTokenSecret } from '../../config/constants';
 
 const express = require('express');
@@ -10,17 +10,28 @@ const jwt = require('jsonwebtoken');
 router.post('/', async function(req, res)  {
 
     try {
-        let users : any = await authController.allUsers();
+        let users : any = await LoginController.allUsers();
         const { username, password } = req.body;
         const user = users.find(u => { return u.username === username && u.password === password });
+        // var success = 0;
         if (user) {
+            
             const accessToken = jwt.sign({ username: user.username, role: user.role }, accessTokenSecret);
             res.json({
-                accessToken
+                "success": 1,
+                "role": user.role,
+                "message": "login successfully",
+                accessToken,
+
                 
             });
         }else{
-            res.send('Username or password incorrect');
+            res.json({
+                "success": 0,
+                "message": "invalid username or password",
+
+                
+            });
         }
     }
     catch (error) {
