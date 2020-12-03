@@ -35,7 +35,7 @@ export default class SignupController {
         }
         
         signupDb.addUser(values);
-        return "added";
+        return true;
     }
 
     private static async checkDuplicatedUsername(username: string){
