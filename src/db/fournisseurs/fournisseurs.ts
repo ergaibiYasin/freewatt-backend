@@ -1,12 +1,9 @@
 import { pool } from '../db';
 
-
-
-export default class Productsdb {
-    public static addProduct = (values) => {
+export default class Fournisseursdb{
+    public static addFournisseur = (values) => {
         return new Promise ((resolve, reject) => {
-
-            const sql = "INSERT INTO products(productName, categoryID, price, description, commentaire) VALUES ?";
+            const sql = "INSERT INTO fournisseurs(nom, prenom, email, num) VALUES ?";
             
             pool.query(sql ,[values] ,(err, results)=>{
                 if(err){
@@ -18,10 +15,10 @@ export default class Productsdb {
         });
     };
 
-    public static updateProduct = (product) => {
+    public static updateFournisseur = (fournisseur) => {
         return new Promise ((resolve, reject) => {
 
-            const sql = "UPDATE products SET productName='" + product.productName + "',categoryID=" + product.categoryID + ",price=" + product.price + ",description='"+ product.description + "',commentaire='"+ product.commentaire + "' WHERE productID =" + product.productID;
+            const sql = "UPDATE fournisseurs SET nom='" + fournisseur.nom + "',prenom='" + fournisseur.prenom + "',email='" + fournisseur.email + "',num='"+ fournisseur.num + "' WHERE fournisseurID =" + fournisseur.fournisseurID;
 
             pool.query(sql, (err, results)=>{
                 if(err){
@@ -32,12 +29,11 @@ export default class Productsdb {
             });
         });
     };
-    
-    
-    public static allProducts = () => {
+
+    public static allFourmisseurs = () => {
         return new Promise ((resolve, reject) => {
 
-            const sql = "SELECT * FROM products";
+            const sql = "SELECT * FROM fournisseurs";
 
             pool.query(sql, (err, results)=>{
                 if(err){
@@ -50,23 +46,21 @@ export default class Productsdb {
             });
         });
     };
-    
-    
-    public static delProduct = (value) => {
+
+    public static delFournisseur = (value) => {
         console.log(value);
         return new Promise ((resolve, reject) => {
 
-            const sql = "DELETE FROM products WHERE productID = ?";
+            const sql = "DELETE FROM fournisseurs WHERE fournisseurID = ?";
             
             pool.query(sql ,[value] ,(err, results)=>{
                 if(err){
                     return reject(err);
                 }
                 console.log("deleted");
+                // console.log(value);
                 return resolve(results);
             });
         });
     };
-    
 }
-

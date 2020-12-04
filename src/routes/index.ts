@@ -2,6 +2,7 @@ import productRoute from "./products/products";
 import saleRoute from "./sales/sales";
 import loginRoute from "./auth/login";
 import signupRoute from "./auth/signup";
+import fournisseursRoute from "./fournisseurs/fournisseurs";
 
 
 const express = require('express');
@@ -22,6 +23,7 @@ router.use('/product', productRoute);
 router.use('/sale', saleRoute);
 router.use('/login', loginRoute);
 router.use('/signup', signupRoute);
+router.use('/fournisseurs', fournisseursRoute);
 
 
 

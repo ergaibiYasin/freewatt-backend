@@ -1,7 +1,10 @@
-const express = require('express');
 import  productsdb from '../../db/products/products';
+
+
+const express = require('express');
 const bodyParser = require('body-parser');
 const server = express();
+
 server.use(express.json());
 
 server.use(bodyParser.json());
