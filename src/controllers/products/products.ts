@@ -42,7 +42,7 @@ export default class ProductsController {
     private static addProduct(req : any){
         const product = req.body;
         var values = [];
-        values.push([product.productName, product.price, product.description, product.commentaire]);
+        values.push([product.productName, product.price, product.description, product.commentaire, product.fournisseur]);
         productsdb.addProduct(values);
         return values;
     }
