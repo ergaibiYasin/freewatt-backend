@@ -6,7 +6,7 @@ export default class Productsdb {
     public static addProduct = (values) => {
         return new Promise ((resolve, reject) => {
 
-            const sql = "INSERT INTO products(productName, price, description, commentaire) VALUES ?";
+            const sql = "INSERT INTO products(productName, fournisseur, price, description, commentaire) VALUES ?";
             
             pool.query(sql ,[values] ,(err, results)=>{
                 if(err){
@@ -21,7 +21,7 @@ export default class Productsdb {
     public static updateProduct = (product) => {
         return new Promise ((resolve, reject) => {
 
-            const sql = "UPDATE products SET productName='" + product.productName + "',fournisseur='"+ product.fournisseur + "',price=" + product.price + ",description='"+ product.description + "',commentaire='"+ product.commentaire + "' WHERE productID =" + product.productID;
+            const sql = "UPDATE products SET productName='" + product.productName + "',fournisseur='" + product.fournisseur + "',price=" + product.price + ",description='"+ product.description + "',commentaire='" + product.commentaire + "' WHERE productID =" + product.productID;
 
             pool.query(sql, (err, results)=>{
                 if(err){
