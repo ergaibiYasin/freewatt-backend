@@ -27,6 +27,18 @@ export default class FournisseursController{
         return results;
         
     };
+    
+    public static async selectFournisseur() {
+        const results = await fournisseurdb.selectFournisseurName();
+        var table = [];
+        var string = JSON.stringify(results);
+        var json = JSON.parse(string);
+        for (var i = 0; i<json.length; i++){
+            table.push(json[i].nom + ' ' + json[i].prenom)
+        };
+        return table;
+        
+    };
 
     public static delFournisseur(req) {
         var fournisseurId = req.params.id;
