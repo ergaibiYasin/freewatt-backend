@@ -37,8 +37,27 @@ export default class ClientsController{
     private static addClient(req : any){
         const client = req.body;
         var values = [];
-        values.push([client.nom, client.prenom, client.email, client.num]);
+        values.push([client.fullname, client.email, client.num]);
         clientsdb.addClient(values);
         return values;
     }
+
+    public static async clientsFullname() {
+        const results = await clientsdb.selectClientsFullname();
+        var table = [];
+
+        var string = JSON.stringify(results);
+        var json = JSON.parse(string);
+        for (var i = 0; i<json.length; i++){
+            // console.log(json[i].fullname);
+            table.push(json[i].fullname)
+            
+        };
+        // table.push(json[0].fullname)
+        // console.log(string);
+        // console.log(table);
+        // console.log(json[0].fullname);        
+        return table;
+        
+    };
 }

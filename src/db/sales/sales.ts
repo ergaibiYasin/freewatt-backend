@@ -21,7 +21,7 @@ export default class Salesdb {
     public static updateSale = (sale) => {
         return new Promise ((resolve, reject) => {
 
-            const sql = "UPDATE sales SET client='" + sale.client + "',product='" + sale.product + "',unitPrice=" + sale.unitPrice + ",quantity="+ sale.quantity + ",total="+ sale.unitPrice*sale.quantity + ",saleDate='"+ sale.saleDate + "',comment='"+ sale.comment + "' WHERE saleID =" + sale.saleID;
+            const sql = "UPDATE sales SET client='" + sale.client + "',product='" + sale.productID + "',unitPrice=" + sale.unitPrice + ",quantity="+ sale.quantity + ",total="+ sale.unitPrice*sale.quantity + ",saleDate='"+ sale.saleDate + "',comment='"+ sale.comment + "' WHERE saleID =" + sale.saleID;
 
             pool.query(sql, (err, results)=>{
                 if(err){
@@ -49,6 +49,8 @@ export default class Salesdb {
             });
         });
     };
+    
+    
     
     public static delSale = (value) => {
         
