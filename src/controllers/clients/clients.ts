@@ -49,14 +49,9 @@ export default class ClientsController{
         var string = JSON.stringify(results);
         var json = JSON.parse(string);
         for (var i = 0; i<json.length; i++){
-            // console.log(json[i].fullname);
             table.push(json[i].fullname)
             
         };
-        // table.push(json[0].fullname)
-        // console.log(string);
-        // console.log(table);
-        // console.log(json[0].fullname);        
         return table;
         
     };

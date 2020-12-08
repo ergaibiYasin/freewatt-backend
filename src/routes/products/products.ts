@@ -27,6 +27,17 @@ router.get('/allProducts', async(req, res, next) => {
     }
 });
 
+router.get('/productName', async(req, res, next) => {
+    try {
+        let results = await productsController.productName();
+        await res.send(results);
+    }
+    catch (error) {
+        console.log(error);
+        res.sendStatus(500);
+    }
+});
+
 
 router.delete('/del/:id', async(req, res, next) => {
     try {
