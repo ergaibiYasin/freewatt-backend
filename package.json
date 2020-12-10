@@ -27,6 +27,7 @@
         "intellisense": "0.0.1",
         "jsonwebtoken": "^8.5.1",
         "mysql": "^2.18.1",
+        "ngx-show-hide-password": "^2.3.0",
         "sequelize": "^6.3.4"
     },
     "devDependencies": {
