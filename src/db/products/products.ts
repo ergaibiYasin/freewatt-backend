@@ -50,6 +50,22 @@ export default class Productsdb {
             });
         });
     };
+
+    public static selectProductName = () => {
+        return new Promise ((resolve, reject) => {
+
+            const sql = "SELECT productName FROM products";
+            pool.query(sql, (err, results)=>{
+                if(err){
+                    return reject(err);
+                }
+                console.log("found");
+                
+                
+                return resolve(results);
+            });
+        });
+    };
     
     
     public static delProduct = (value) => {

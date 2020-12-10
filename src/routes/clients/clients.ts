@@ -17,8 +17,19 @@ router.post('/addOrUpdate', async(req, res, next) => {
 
 router.get('/allclients', async(req, res, next) => {
     try {
-        let results = await clientsController.allClients();
+        let results = await clientsController.allClients();        
         await res.json(results);
+    }
+    catch (error) {
+        console.log(error);
+        res.sendStatus(500);
+    }
+});
+
+router.get('/clientsFullname', async(req, res, next) => {
+    try {
+        let results = await clientsController.clientsFullname();
+        await res.send(results);
     }
     catch (error) {
         console.log(error);

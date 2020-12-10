@@ -26,6 +26,18 @@ router.get('/allfournisseurs', async(req, res, next) => {
     }
 });
 
+
+router.get('/selectFournisseur', async(req, res, next) => {
+    try {
+        let results = await fournisseursController.selectFournisseur();
+        await res.send(results);
+    }
+    catch (error) {
+        console.log(error);
+        res.sendStatus(500);
+    }
+});
+
 router.delete('/del/:id', async(req, res, next) => {
     try {
         let productId = await fournisseursController.delFournisseur(req);

@@ -47,6 +47,22 @@ export default class Fournisseursdb{
         });
     };
 
+    public static selectFournisseurName = () => {
+        return new Promise ((resolve, reject) => {
+
+            const sql = "SELECT nom, prenom FROM fournisseurs";
+            pool.query(sql, (err, results)=>{
+                if(err){
+                    return reject(err);
+                }
+                console.log("found");
+                
+                
+                return resolve(results);
+            });
+        });
+    };
+
     public static delFournisseur = (value) => {
         console.log(value);
         return new Promise ((resolve, reject) => {

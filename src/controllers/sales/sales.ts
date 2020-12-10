@@ -40,7 +40,8 @@ export default class SalesController {
     private static addSale(req : any){
         const sale = req.body;
         var values = [];
-        values.push([sale.customerID, sale.productID, sale.unitPrice, sale.quantity, sale.saleDate, sale.comment]);
+        var total = sale.unitPrice*sale.quantity;
+        values.push([sale.client, sale.product, sale.unitPrice, sale.quantity, total, sale.saleDate, sale.comment]);
         Salesdb.addSale(values);
         return values;
     }

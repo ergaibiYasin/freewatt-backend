@@ -47,5 +47,17 @@ export default class ProductsController {
         return values;
     }
     
-    
+    public static async productName() {
+        const results = await productsdb.selectProductName();
+        var table = [];
+        var string = JSON.stringify(results);
+        var json = JSON.parse(string);
+        for (var i = 0; i<json.length; i++){
+            table.push(json[i].productName)
+        };
+        console.log(table);
+
+        return table;
+        
+    };
 }
