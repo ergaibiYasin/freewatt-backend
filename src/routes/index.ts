@@ -1,4 +1,9 @@
-import addproduct from "./products/products";
+import productRoute from "./products/products";
+import saleRoute from "./sales/sales";
+import loginRoute from "./auth/login";
+import signupRoute from "./auth/signup";
+import fournisseursRoute from "./fournisseurs/fournisseurs";
+import clientsRoute from "./clients/clients";
 
 
 const express = require('express');
@@ -15,7 +20,12 @@ server.use(bodyParser.json());
 
 
 
-router.use('/addproduct', addproduct);
+router.use('/product', productRoute);
+router.use('/sale', saleRoute);
+router.use('/login', loginRoute);
+router.use('/signup', signupRoute);
+router.use('/fournisseurs', fournisseursRoute);
+router.use('/clients', clientsRoute);
 
 
 

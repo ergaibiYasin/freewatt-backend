@@ -1,7 +1,10 @@
-const express = require('express');
 import  productsdb from '../../db/products/products';
+
+
+const express = require('express');
 const bodyParser = require('body-parser');
 const server = express();
+
 server.use(express.json());
 
 server.use(bodyParser.json());
@@ -11,19 +14,46 @@ server.use(bodyParser.json());
 
 
 export default class ProductsController {
-    public static addProduct(req) {
-        console.log("1");
-        var jsondata = req.body;
-        console.log("2");
-        var values = [];
-    
-        for(var i=0; i< jsondata.length; i++){
-            values.push([jsondata[i].productID, jsondata[i].productName, jsondata[i].categoryID, jsondata[i].price, jsondata[i].description, jsondata[i].commentaire]);
+    public static addOrUpdateProduct(req) {
+        var productId = req.body.productID;
+        if (productId ) {
+            const product = req.body;
+            productsdb.updateProduct(product);
+        } else {
+            return this.addProduct(req);
         }
-        console.log("3");
-        productsdb.addProduct(values);
-        console.log("4");
+    };
+    
+    public static allProducts() {
+        const results = productsdb.allProducts();
+        return results;
     };
     
     
+    public static delProduct(req) {
+        var productId = req.params.id;
+        productsdb.delProduct(productId);
+        return productId;
+    };
+
+    private static addProduct(req : any){
+        const product = req.body;
+        var values = [];
+        values.push([product.productName, product.fournisseur, product.price, product.description, product.commentaire]);
+        productsdb.addProduct(values);
+        return values;
+    }
+    
+    public static async productName() {
+        const results = await productsdb.selectProductName();
+        var table = [];
+        var string = JSON.stringify(results);
+        var json = JSON.parse(string);
+        for (var i = 0; i<json.length; i++){
+            table.push(json[i].productName)
+        };
+        console.log(table);
+
+        return table;
+    };
 }
