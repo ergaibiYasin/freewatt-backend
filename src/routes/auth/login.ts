@@ -8,7 +8,8 @@ const jwt = require('jsonwebtoken');
 
 
 router.post('/', async function(req, res)  {
-
+    console.log("00");
+    
     try {
         let users : any = await LoginController.allUsers();
         const { username, password } = req.body;
@@ -17,8 +18,12 @@ router.post('/', async function(req, res)  {
         if (user) {
             
             const accessToken = jwt.sign({ username: user.username, role: user.role }, accessTokenSecret);
+            console.log(user.username);
+            
             res.json({
                 "success": 1,
+                "username": user.username,
+                "email": user.email,
                 "role": user.role,
                 "message": "login successfully",
                 accessToken,

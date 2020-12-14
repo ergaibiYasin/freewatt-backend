@@ -53,5 +53,5 @@ const authenticateJWT = (req, res, next) => {
 
 //run server
 server.listen(PORT, () => {
-    console.log('server is running on port: ${PORT}')
+    console.log('server is running on port: ' + PORT)
 });
