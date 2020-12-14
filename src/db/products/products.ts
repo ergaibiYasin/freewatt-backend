@@ -12,7 +12,6 @@ export default class Productsdb {
                 if(err){
                     return reject(err);
                 }
-                console.log("added");
                 return resolve(results);
             });
         });
@@ -27,7 +26,6 @@ export default class Productsdb {
                 if(err){
                     return reject(err);
                 }
-                console.log("updated");
                 return resolve(results);
             });
         });
@@ -43,9 +41,6 @@ export default class Productsdb {
                 if(err){
                     return reject(err);
                 }
-                console.log("found");
-                
-                
                 return resolve(results);
             });
         });
@@ -59,9 +54,6 @@ export default class Productsdb {
                 if(err){
                     return reject(err);
                 }
-                console.log("found");
-                
-                
                 return resolve(results);
             });
         });
@@ -78,7 +70,6 @@ export default class Productsdb {
                 if(err){
                     return reject(err);
                 }
-                console.log("deleted");
                 return resolve(results);
             });
         });

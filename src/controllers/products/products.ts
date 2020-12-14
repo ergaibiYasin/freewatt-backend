@@ -21,15 +21,12 @@ export default class ProductsController {
             productsdb.updateProduct(product);
         } else {
             return this.addProduct(req);
-            
         }
-        
     };
     
     public static allProducts() {
         const results = productsdb.allProducts();
         return results;
-        
     };
     
     
@@ -58,6 +55,5 @@ export default class ProductsController {
         console.log(table);
 
         return table;
-        
     };
 }

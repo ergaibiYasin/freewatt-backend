@@ -12,10 +12,6 @@ const jwt = require('jsonwebtoken');
 router.post('/', async(req, res, next) => {
     try {
         let added = await SignupController.addUser(req);
-        // await res.send(added);
-        // res.json({
-        //     "message": added
-        // })
         if (added === true) {
             res.json({
                 "success": 1,

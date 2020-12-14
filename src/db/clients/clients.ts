@@ -1,4 +1,3 @@
-import { CLIENT_RENEG_LIMIT } from 'tls';
 import { pool } from '../db';
 
 export default class clientsdb{
@@ -10,7 +9,6 @@ export default class clientsdb{
                 if(err){
                     return reject(err);
                 }
-                console.log("added");
                 return resolve(results);
             });
         });
@@ -25,7 +23,6 @@ export default class clientsdb{
                 if(err){
                     return reject(err);
                 }
-                console.log("updated");
                 return resolve(results);
             });
         });
@@ -40,9 +37,6 @@ export default class clientsdb{
                 if(err){
                     return reject(err);
                 }
-                console.log("found");
-                
-                
                 return resolve(results);
             });
         });
@@ -57,9 +51,6 @@ export default class clientsdb{
                 if(err){
                     return reject(err);
                 }
-                console.log("found");
-                
-                
                 return resolve(results);
             });
         });
@@ -74,9 +65,6 @@ export default class clientsdb{
                 if(err){
                     return reject(err);
                 }
-                console.log("found");
-                
-                
                 return resolve(results);
             });
         });
@@ -92,8 +80,6 @@ export default class clientsdb{
                 if(err){
                     return reject(err);
                 }
-                console.log("deleted");
-                // console.log(value);
                 return resolve(results);
             });
         });

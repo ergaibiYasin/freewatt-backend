@@ -17,15 +17,12 @@ export default class ClientsController{
             clientsdb.updateClient(fournisseur);
         } else {
             return this.addClient(req);
-            
         }
-        
     };
 
     public static allClients() {
         const results = clientsdb.allClients();
         return results;
-        
     };
 
     public static delClient(req) {
@@ -45,12 +42,10 @@ export default class ClientsController{
     public static async clientsFullname() {
         const results = await clientsdb.selectClientsFullname();
         var table = [];
-
         var string = JSON.stringify(results);
         var json = JSON.parse(string);
         for (var i = 0; i<json.length; i++){
             table.push(json[i].fullname)
-            
         };
         return table;
         

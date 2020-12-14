@@ -11,8 +11,6 @@ server.use(bodyParser.json());
 
 
 
-
-
 export default class SalesController {
     public static addOrUpdateSale(req) {
         var saleId = req.body.saleID;
@@ -28,7 +26,6 @@ export default class SalesController {
     public static allSales() {
         const results = Salesdb.allSales();
         return results;
-        
     };
     
     public static delSale(req) {

@@ -17,15 +17,12 @@ export default class FournisseursController{
             fournisseurdb.updateFournisseur(fournisseur);
         } else {
             return this.addfournisseur(req);
-            
         }
-        
     };
 
     public static allfournisseurs() {
         const results = fournisseurdb.allFourmisseurs();
         return results;
-        
     };
     
     public static async selectFournisseur() {
@@ -37,7 +34,6 @@ export default class FournisseursController{
             table.push(json[i].nom + ' ' + json[i].prenom)
         };
         return table;
-        
     };
 
     public static delFournisseur(req) {

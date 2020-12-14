@@ -8,7 +8,6 @@ const router = express.Router();
 
 router.post('/addOrUpdate', async(req, res, next) => {
     try {
-        // productsController.addOrUpdateProduct(req);
         let values = await SalesController.addOrUpdateSale(req);
         await res.json(values);
     }

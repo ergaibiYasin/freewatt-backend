@@ -14,12 +14,9 @@ router.post('/', async function(req, res)  {
         let users : any = await LoginController.allUsers();
         const { username, password } = req.body;
         const user = users.find(u => { return u.username === username && u.password === password });
-        // var success = 0;
         if (user) {
-            
             const accessToken = jwt.sign({ username: user.username, role: user.role }, accessTokenSecret);
             console.log(user.username);
-            
             res.json({
                 "success": 1,
                 "username": user.username,
@@ -27,15 +24,11 @@ router.post('/', async function(req, res)  {
                 "role": user.role,
                 "message": "login successfully",
                 accessToken,
-
-                
             });
         }else{
             res.json({
                 "success": 0,
                 "message": "invalid username or password",
-
-                
             });
         }
     }

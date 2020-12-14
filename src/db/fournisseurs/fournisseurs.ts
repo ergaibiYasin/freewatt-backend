@@ -9,7 +9,6 @@ export default class Fournisseursdb{
                 if(err){
                     return reject(err);
                 }
-                console.log("added");
                 return resolve(results);
             });
         });
@@ -24,7 +23,6 @@ export default class Fournisseursdb{
                 if(err){
                     return reject(err);
                 }
-                console.log("updated");
                 return resolve(results);
             });
         });
@@ -39,9 +37,6 @@ export default class Fournisseursdb{
                 if(err){
                     return reject(err);
                 }
-                console.log("found");
-                
-                
                 return resolve(results);
             });
         });
@@ -55,9 +50,6 @@ export default class Fournisseursdb{
                 if(err){
                     return reject(err);
                 }
-                console.log("found");
-                
-                
                 return resolve(results);
             });
         });
@@ -73,8 +65,6 @@ export default class Fournisseursdb{
                 if(err){
                     return reject(err);
                 }
-                console.log("deleted");
-                // console.log(value);
                 return resolve(results);
             });
         });

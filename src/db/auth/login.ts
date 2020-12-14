@@ -3,8 +3,6 @@ import { pool } from '../db';
 
 export default class Logindb {
 
-
-
     public static allUsers = () => {
         return new Promise ((resolve, reject) => {
 
